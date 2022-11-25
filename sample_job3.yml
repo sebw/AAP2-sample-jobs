@@ -6,4 +6,4 @@
 
   tasks:
   - debug:
-      msg: Previous task failed.
+      msg: Previous task failed, this job could run remediation or open a ticket for example.

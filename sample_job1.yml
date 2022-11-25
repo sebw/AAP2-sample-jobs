@@ -5,11 +5,11 @@
   gather_facts: false
 
   vars:
-    expected_result: succeed
+    job1_result: succeed
 
   tasks:
   - debug:
-      msg: Hello. You requested this task to {{ expected_result }}
+      msg: Hello. You requested this task to {{ job1_result }}
 
   - fail:
-    when: expected_result == "fail"
+    when: job1_result == "fail"
