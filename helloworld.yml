@@ -1,0 +1,10 @@
+---
+- name: This playbook displays a message
+  hosts: all
+
+  gather_facts: false
+
+  tasks:
+  - name: This could have been something useful
+    debug:
+      msg: Replace this task with something more useful, like installing packages
