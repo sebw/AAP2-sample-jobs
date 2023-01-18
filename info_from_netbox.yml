@@ -8,3 +8,8 @@
   - name: Display cluster info about the node
     debug:
       msg: According to Netbox CMDB I'm in {{ cluster }} on {{ cluster_type }} and my role is {{ device_roles[0] }}
+
+  - name: Check if more than 4GB of RAM
+    debug:
+      msg: This machine has more than 4GB of RAM
+    when: memory > 4096
