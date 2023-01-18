@@ -7,7 +7,12 @@
   tasks:
   - name: Display cluster info about the node
     debug:
-      msg: According to Netbox CMDB I'm in {{ cluster }} on {{ cluster_type }} and my role is {{ device_roles[0] }}
+      msg: According to Netbox CMDB I'm a VM in {{ cluster }} on {{ cluster_type }} and my role is {{ device_roles[0] }}
+    when: is_virtual == True
+
+  - name: Display tenant
+    debug:
+      msg: I belong to tenant {{ tenants[0] }}
 
   - name: Check if more than 4GB of RAM
     debug:
