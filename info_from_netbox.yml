@@ -7,4 +7,4 @@
   tasks:
   - name: Display cluster info about the VM
     debug:
-      msg: According to Netbox CMDB I'm in {{ cluster }} on {{ cluster_type }} and my role is {{ device_roles }}
+      msg: According to Netbox CMDB I'm in {{ cluster }} on {{ cluster_type }} and my role is {{ device_roles[0] }}
