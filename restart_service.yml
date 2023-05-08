@@ -1,6 +1,6 @@
 ---
 - name: First line support playbook
-  hosts: all
+  hosts: "{{ name_of_machine }}"
   gather_facts: true
   tasks:
   - name: Restart service httpd, in all cases
