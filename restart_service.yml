@@ -3,11 +3,15 @@
   hosts: "{{ name_of_machine }}"
   gather_facts: true
   tasks:
-  - name: Restart service httpd, in all cases
+  - name: Restart service
     ansible.builtin.service:
       name: "{{ name_of_service }}"
       state: restarted
+    register: output
 
-  - name:
+  - debug:
+      var: output
+
+  - name: Confirmation
     debug:
       msg: Service {{ name_of_service }} has been restarted on {{ name_of_machine }}.
