@@ -1,0 +1,10 @@
+---
+- name: L2 support playbook
+  hosts: "{{ name_of_machine }}"
+  gather_facts: true
+  become: true
+
+  tasks:
+  - name: Reboot server {{ name_of_machine }}
+    ansible.builtin.reboot:
+      reboot_timeout: 3600
