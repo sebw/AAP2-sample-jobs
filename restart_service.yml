@@ -20,4 +20,4 @@
   - name: Escalation required
     fail:
       msg: Something failed. Please escalate to L2 support.
-  when: output.failed == true
+    when: output.failed == true
