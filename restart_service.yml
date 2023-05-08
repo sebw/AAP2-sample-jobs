@@ -7,3 +7,7 @@
     ansible.builtin.service:
       name: "{{ name_of_service }}"
       state: restarted
+
+  - name:
+    debug:
+      msg: Service {{ name_of_service }} has been restarted on {{ name_of_machine }}.
