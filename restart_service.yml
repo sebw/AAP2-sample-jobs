@@ -2,6 +2,7 @@
 - name: First line support playbook
   hosts: "{{ name_of_machine }}"
   gather_facts: true
+  become: true
   tasks:
   - name: Restart service
     ansible.builtin.service:
