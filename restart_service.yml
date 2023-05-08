@@ -17,11 +17,12 @@
       msg: Service {{ name_of_service }} has been restarted on {{ name_of_machine }}.
     when: output.failed == false
 
-  block:
-  - name: Escalation L2 required
-    debug:
-      msg: Looks like something went wrong. Please escalate to L2.
+  - name: Escalate
+    block:
+    - name: Escalation L2 required
+      debug:
+        msg: Looks like something went wrong. Please escalate to L2.
 
-  - name: Force the AAP job to display failure
-    fail:
-  when: output.failed == true
+    - name: Force the AAP job to display failure
+      fail:
+    when: output.failed == true
