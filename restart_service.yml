@@ -1,0 +1,9 @@
+---
+- name: First line support playbook
+  hosts: all
+  gather_facts: true
+  tasks:
+  - name: Restart service httpd, in all cases
+    ansible.builtin.service:
+      name: "{{ name_of_service }}"
+      state: restarted
