@@ -9,9 +9,12 @@
       state: restarted
     register: output
 
-  - debug:
-      var: output
-
-  - name: Confirmation
+  - name: Successfully restarted
     debug:
       msg: Service {{ name_of_service }} has been restarted on {{ name_of_machine }}.
+    when: output.failed == false
+  
+  - name: Escalation L2
+    debug:
+      msg: Looks like something went wrong. Please escalate to L2.
+    when: output.failed == true
