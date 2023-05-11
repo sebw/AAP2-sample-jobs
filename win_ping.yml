@@ -5,3 +5,8 @@
   tasks:
   - name: check connectivity
     win_ping:
+
+  - name: Restart a service
+    win_service:
+      name: spooler
+      state: restarted
