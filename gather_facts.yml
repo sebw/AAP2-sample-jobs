@@ -2,3 +2,6 @@
 - hosts: all
   gather_facts: true
   tasks:
+  - name: feature 123
+    debug:
+      msg: This is a new task added by Seb for the feature request 123
