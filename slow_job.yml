@@ -1,0 +1,16 @@
+---
+- name: this playbook will take a loooong time
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: provisioning VM
+    debug:
+      msg: Let's assume this task takes about 10 minutes
+    tags:
+    - provisioning
+
+  - name: post config
+    debug:
+      msg: The post provisioning takes a few seconds
+    tags:
+    - configuration
