@@ -1,6 +1,7 @@
 - name: check the requested OS
   hosts: localhost
   gather_facts: false
+  ignore_errors: true
   tasks:
   - name: Windows
     fail:
