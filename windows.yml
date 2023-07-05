@@ -1,0 +1,7 @@
+- name: Windows VM
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Windows VM
+    debug:
+      msg: you ordered a Windows VM of size {{ size }}

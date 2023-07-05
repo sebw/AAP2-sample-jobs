@@ -1,0 +1,7 @@
+- name: Linux VM
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Linux VM
+    debug:
+      msg: you ordered a Linux VM of size {{ size }}
