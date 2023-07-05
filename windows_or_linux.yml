@@ -1,0 +1,13 @@
+- name: check the requested OS
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Windows
+    fail:
+      msg: You requested a Windows machine
+    when: os == "windows"
+
+  - name: Linux
+    debug:
+      msg: You requested a Linux machine
+    when: os == "linux"
