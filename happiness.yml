@@ -1,0 +1,7 @@
+---
+- name: display level of happiness
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - debug:
+      msg: When asked if you were happy you said {{ happiness }}
