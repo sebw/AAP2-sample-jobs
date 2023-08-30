@@ -9,7 +9,9 @@
 
   tasks:
   - debug:
-      msg: Hello. You requested this task to {{ job1_result }}
+      msg: Hello. You requested this task to SUCCEED because you set the variable to {{ job1_result }}
+    when: "job1_result.startswith('succ')"
 
   - fail:
-    when: job1_result == "fail"
+      msg: Hello. You requested this task to FAIL because you set the variable to {{ job1_result }}
+    when: "job1_result.startswith('fail')"
