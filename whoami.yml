@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+  - command: whoami
+    register: whoami
+  - debug:
+      var: whoami.stdout
