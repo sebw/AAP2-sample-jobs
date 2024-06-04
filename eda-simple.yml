@@ -1,0 +1,7 @@
+---
+- name: simple EDA reaction
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - debug:
+      var: payload
