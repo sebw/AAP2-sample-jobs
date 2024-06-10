@@ -3,12 +3,15 @@
   hosts: localhost
   gather_facts: false
 
+  # Dynatrace sends a payload with dotted keys in their JSON payload
+  # We need to work around that with set_fact
 
   tasks:
   - name: get event.name from json
     set_fact:
-      json_out: "{{ payload | json_query('eventData.\"event.name\"') }}"
+      problem_type: "{{ payload | json_query('eventData.\"event.name\"') }}"
+      
   
   - name: display event.name
     debug:
-      msg: The problem is a {{ json_out }}
+      msg: The problem is a {{ problem_type }} on {{ payload.eventData.root_cause_entity_name }} 
