@@ -3,12 +3,9 @@
   hosts: localhost
   gather_facts: false
 
-  vars:
-    json_var: "{{ payload | from_json }}" 
-  
   tasks:
   - name: get "event.name" from json
     set_fact:
-      json_out: "{{ json_var | json_query('eventData.\"event.name\"[].value') }}"
+      json_out: "{{ payload | json_query('eventData.\"event.name\"[].value') }}"
   - debug:
       var: json_out
