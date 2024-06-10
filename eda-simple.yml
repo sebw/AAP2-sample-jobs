@@ -7,6 +7,36 @@
   # While this is JSON compliant, Ansible struggles parsing keys with dots..
   # We need to work around that with set_fact and the json_query filter for any concerned variables
 
+  # EXAMPLE PAYLOAD
+  # {
+  #   "event": {
+  #     "event.id": "-8467305699802475185_1718043940073V2",
+  #     "timestamp": "2024-06-10T18:33:44.613000000Z",
+  #     "display_id": "P-240649",
+  #     "event.kind": "DAVIS_PROBLEM",
+  #     "event.name": "CPU saturation",
+  #     "event.start": "2024-06-10T18:25:40.073000000Z",
+  #     "event.status": "ACTIVE",
+  #     "event.category": "RESOURCE_CONTENTION",
+  #     "dt.davis.event_ids": [
+  #       "-8467305699802475185_1718043940073"
+  #     ],
+  #     "affected_entity_ids": [
+  #       "HOST-F1E1C41C7EE25485"
+  #     ],
+  #     "dt.davis.mute.status": "NOT_MUTED",
+  #     "root_cause_entity_id": "HOST-F1E1C41C7EE25485",
+  #     "affected_entity_types": [
+  #       "dt.entity.host"
+  #     ],
+  #     "dt.davis.is_duplicate": false,
+  #     "root_cause_entity_name": "vm1.labo.ovh",
+  #     "event.status_transition": "UPDATED",
+  #     "dt.davis.is_frequent_event": false,
+  #     "maintenance.is_under_maintenance": false
+  #   }
+  # }
+
   tasks:
   - name: get event.name from json
     set_fact:
