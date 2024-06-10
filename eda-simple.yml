@@ -5,3 +5,5 @@
   tasks:
   - debug:
       var: payload
+  - debug:
+      var: payload.eventData.["event.name"]
