@@ -11,7 +11,10 @@
     set_fact:
       problem_type: "{{ payload | json_query('eventData.\"event.name\"') }}"
       
-  
   - name: display event.name
     debug:
       msg: The problem is a {{ problem_type }} on {{ payload.eventData.root_cause_entity_name }} 
+
+  - name: display event.name without set_fact
+    debug:
+      msg: The problem is a {{ payload | json_query('eventData.\"event.name\"') }} on {{ payload.eventData.root_cause_entity_name }} 
