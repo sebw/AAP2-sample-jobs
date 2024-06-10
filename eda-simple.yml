@@ -4,7 +4,7 @@
   gather_facts: false
 
   vars:
-    json_var: "{{ payload }}"
+    json_var: "{{ payload | from_json }}"
 
   tasks:
   - name: get event.name from json
