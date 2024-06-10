@@ -2,8 +2,11 @@
 - name: simple EDA reaction
   hosts: localhost
   gather_facts: false
+
+  vars:
+    payload_json: {{ payload | to_json }} 
+  
   tasks:
   - debug:
-      var: payload
-  - debug:
-      var: payload.eventData.["event.name"]
+      var: payload_json
+
