@@ -45,4 +45,4 @@
       
   - name: display event.name
     debug:
-      msg: The problem is a {{ problem_type }} on {{ payload.eventData.root_cause_entity_name }} and started at {{ problem_start }}
+      msg: The problem is a {{ problem_type }} and started at {{ problem_start }}
