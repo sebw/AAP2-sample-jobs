@@ -10,4 +10,4 @@
   - debug:
       var: payload_json
   - debug:
-      msg: Event name is {{ payload_json.eventData.['event.name'] }}
+      msg: Event name is {{ payload_json.eventData['event.name'] }}
