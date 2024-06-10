@@ -3,15 +3,14 @@
   hosts: localhost
   gather_facts: false
 
+  vars:
+    json_var: "{{ payload }}"
+
   tasks:
-  - name: display full payload
-    debug:
-      var: payload
-      
-  - name: get "event.name" from json
+  - name: get event.name from json
     set_fact:
-      json_out: "{{ payload | json_query('eventData.\"event.name\"[].value') }}"
+      json_out: "{{ json_var | json_query('payload.eventData.\"event.name\"') }}"
   
   - name: display event.name
     debug:
-      var: json_out
+      msg: The problem is a {{ json_out }}
