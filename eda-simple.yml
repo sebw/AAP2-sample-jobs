@@ -4,7 +4,7 @@
   gather_facts: false
 
   vars:
-    payload_json: {{ payload | to_json }} 
+    payload_json: "{{ payload | to_json }}" 
   
   tasks:
   - debug:
