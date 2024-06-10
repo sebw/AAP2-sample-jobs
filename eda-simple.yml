@@ -4,10 +4,11 @@
   gather_facts: false
 
   vars:
-    payload_json: "{{ payload | to_json }}" 
+    json_var: "{{ payload | from_json }}" 
   
   tasks:
+  - name: get "event.name" from json
+    set_fact:
+      json_out: "{{ json_var | json_query('eventData.\"event.name\"[].value') }}"
   - debug:
-      var: payload_json
-  - debug:
-      msg: Event name is {{ payload_json.eventData['event.name'] }}
+      var: json_out
