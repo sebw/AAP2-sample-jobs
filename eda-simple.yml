@@ -30,7 +30,7 @@
   #       "dt.entity.host"
   #     ],
   #     "dt.davis.is_duplicate": false,
-  #     "root_cause_entity_name": "vm1.labo.ovh",
+  #     "root_cause_entity_name": "vm1.example.tld",
   #     "event.status_transition": "UPDATED",
   #     "dt.davis.is_frequent_event": false,
   #     "maintenance.is_under_maintenance": false
