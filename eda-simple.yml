@@ -10,4 +10,4 @@
   - debug:
       var: payload_json
   - debug:
-      var: payload_json.eventData."event.name"
+      var: payload_json.eventData.["event.name"]
