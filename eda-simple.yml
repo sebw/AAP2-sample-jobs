@@ -38,7 +38,7 @@
   # }
 
   tasks:
-  - name: get event.name from json
+  - name: get event.name from json passed as extra var
     set_fact:
       problem_type: "{{ payload | json_query('eventData.\"event.name\"') }}"
       problem_start: "{{ payload | json_query('eventData.\"event.start\"') }}"
