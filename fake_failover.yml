@@ -5,11 +5,11 @@
   tasks:
   - ansible.builtin.lineinfile:
       path: /etc/ansible/facts.d/sap.fact
-      regexp: 'active'
-      line: "passive"
+      regexp: 'STATUS="active"'
+      line: 'STATUS="passive"'
     when: ansible_facts['ansible_local']['sap']['status'] == "active"
   - ansible.builtin.lineinfile:
       path: /etc/ansible/facts.d/sap.fact
-      regexp: 'passive'
-      line: "active"
+      regexp: 'STATUS="passive"'
+      line: 'STATUS="active"'
     when: ansible_facts['ansible_local']['sap']['status'] == "passive"
