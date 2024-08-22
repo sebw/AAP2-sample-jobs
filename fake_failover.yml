@@ -1,0 +1,15 @@
+---
+- name: pretending to failover an SAP cluster
+  hosts: all
+  gather_facts: true
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /etc/ansible/facts.d/sap.fact
+      regexp: 'active'
+      line: "passive"
+    when: ansible_facts['ansible_local']['sap']['status'] == "active"
+  - ansible.builtin.lineinfile:
+      path: /etc/ansible/facts.d/sap.fact
+      regexp: 'passive'
+      line: "active"
+    when: ansible_facts['ansible_local']['sap']['status'] == "passive"
