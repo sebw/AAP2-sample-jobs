@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    pretending_task: update
+  tasks:
+  - debug:
+      msg: For demo purposes, I'm pretending to {{ pretending_task }} on {{ inventory_hostname }}
