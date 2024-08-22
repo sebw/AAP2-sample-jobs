@@ -3,14 +3,6 @@
   hosts: all
   gather_facts: true
   tasks:
-  - debug:
-      msg: "{{ inventory_hostname }} is currently active"
-    when: ansible_facts['ansible_local']['sap']['status'] == "active"
-    
-  - debug:
-      msg: "{{ inventory_hostname }} is currently passive"
-    when: ansible_facts['ansible_local']['sap']['status'] == "passive"
-    
   - name: failover {{ inventory_hostname }} from active to passive
     ansible.builtin.lineinfile:
       path: /etc/ansible/facts.d/sap.fact
@@ -18,7 +10,8 @@
       line: 'STATUS="passive"'
     when: ansible_facts['ansible_local']['sap']['status'] == "active"
     
-  - ansible.builtin.lineinfile:
+  - name: failover {{ inventory_hostname }} from passive to active
+    ansible.builtin.lineinfile:
       path: /etc/ansible/facts.d/sap.fact
       regexp: 'STATUS="passive"'
       line: 'STATUS="active"'
