@@ -4,11 +4,11 @@
   gather_facts: true
   tasks:
   - debug:
-      msg: {{ inventory_hostname }} is currently active
+      msg: "{{ inventory_hostname }} is currently active"
     when: ansible_facts['ansible_local']['sap']['status'] == "active"
     
   - debug:
-      msg: {{ inventory_hostname }} is currently passive
+      msg: "{{ inventory_hostname }} is currently passive"
     when: ansible_facts['ansible_local']['sap']['status'] == "passive"
     
   - name: failover {{ inventory_hostname }} from active to passive
