@@ -6,9 +6,9 @@
   - name: Windows
     fail:
       msg: You requested a Windows machine
-    when: os == "windows"
+    when: operating_system == "windows"
 
   - name: Linux
     debug:
       msg: You requested a Linux machine
-    when: os == "linux"
+    when: operating_system == "linux"
