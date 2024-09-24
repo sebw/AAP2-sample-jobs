@@ -1,0 +1,14 @@
+---
+- name: installing agents
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: monitoring agent
+    debug:
+      msg: Installing monitoring agent
+    when: monitoring == true
+
+  - name: backup agent
+    debug:
+      msg: Installing backup agent
+    when: backup == true
