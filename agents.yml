@@ -9,9 +9,9 @@
   - name: monitoring agent
     debug:
       msg: Installing monitoring agent
-    when: monitoring == "true"
+    when: monitoring == true
 
   - name: backup agent
     debug:
       msg: Installing backup agent
-    when: backup == "true"
+    when: backup == true
