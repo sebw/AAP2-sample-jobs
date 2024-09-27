@@ -15,11 +15,18 @@
 
   - name: this playbook generates info to be used later
     ansible.builtin.set_stats:
-      choice: "was great"
-      one_list:
-        - bananas
-        - are
-        - my
-        - favorite
-        - fruit
+      data:
+        choice: "was meh"
+        favorite_fruit:
+          - apples
+          - tomato
+    when: operating_system == "rhel"
+
+  - name: this playbook generates info to be used later
+    ansible.builtin.set_stats:
+      data:
+        choice: "was great"
+        favorite_fruit:
+          - bananas
+          - kiwi
     when: operating_system == "rhel"
