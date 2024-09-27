@@ -13,6 +13,13 @@
       msg: You requested a Red Hat Enterprise Linux machine (great choice!)
     when: operating_system == "rhel"
 
-  - set_fact:
+  - name: this playbook generates info to be used later
+    ansible.builtin.set_fact:
       choice: "was great"
+      one_list:
+        - bananas
+        - are
+        - my
+        - favorite
+        - fruit
     when: operating_system == "rhel"
