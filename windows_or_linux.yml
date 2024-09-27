@@ -5,10 +5,10 @@
   tasks:
   - name: Windows
     fail:
-      msg: You requested a Windows machine
+      msg: You requested a Windows machine (not judging, I still love you)
     when: operating_system == "windows"
 
   - name: Linux
     debug:
-      msg: You requested a Linux machine
-    when: operating_system == "linux"
+      msg: You requested a Red Hat Enterprise Linux machine (great choice!)
+    when: operating_system == "rhel"
