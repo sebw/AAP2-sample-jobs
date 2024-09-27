@@ -14,7 +14,7 @@
     when: operating_system == "rhel"
 
   - name: this playbook generates info to be used later
-    ansible.builtin.set_fact:
+    ansible.builtin.set_stats:
       choice: "was great"
       one_list:
         - bananas
