@@ -20,7 +20,7 @@
         favorite_fruit:
           - apples
           - tomato
-    when: operating_system == "rhel"
+    when: operating_system == "windows"
 
   - name: this playbook generates info to be used later
     ansible.builtin.set_stats:
