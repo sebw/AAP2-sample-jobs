@@ -12,3 +12,7 @@
     debug:
       msg: You requested a Red Hat Enterprise Linux machine (great choice!)
     when: operating_system == "rhel"
+
+  - set_fact:
+      choice: "was great"
+    when: operating_system == "rhel"
