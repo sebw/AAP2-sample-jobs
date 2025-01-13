@@ -7,8 +7,9 @@
     setup:
       filter: ansible_selinux
 
-  - name: Check SELinux status
-    command: setenforce
+  - name: Display SELinux status
+    debug:
+      msg: ansible_hostname is problematic because SELinux is {{ ansible_selinux.status }}
     when: ansible_selinux.status != "enforcing"
 
   - name: Check ownership of /opt/secure
