@@ -8,10 +8,10 @@
       filter: ansible_selinux
 
   - name: Check SELinux status
-    fail:
+    command: setenforce
     when: ansible_selinux.status != "enforcing"
 
-  - name: check ownership of /opt/secure
+  - name: Check ownership of /opt/secure
     file:
       path: /opt/secure
       mode: 0700
