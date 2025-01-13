@@ -10,7 +10,7 @@
   - name: Display SELinux status
     debug:
       msg: ansible_hostname is problematic because SELinux is {{ ansible_selinux.status }}
-    when: ansible_selinux.status != "enforcing"
+    when: ansible_selinux.mode != "enforcing"
 
   - name: Check ownership of /opt/secure
     file:
