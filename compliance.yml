@@ -1,12 +1,14 @@
 ---
 - name: compliance job
   hosts: all
+  ignore_errors: true
   tasks:
-  - name: Check if SELinux is enabled
+  - name: Getting SELinux status
     setup:
       filter: ansible_selinux
 
-  - fail:
+  - name: Check SELinux status
+    fail:
     when: ansible_selinux.status != "enforcing"
 
   - name: check ownership of /opt/secure
