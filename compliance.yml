@@ -1,0 +1,16 @@
+---
+- name: compliance job
+  hosts: all
+  tasks:
+  - name: Check if SELinux is enabled
+    setup:
+      filter: ansible_selinux
+
+  - fail:
+    when: ansible_selinux.status != "enforcing"
+
+  - name: check ownership of /opt/secure
+    file:
+      path: /opt/secure
+      mode: 0700
+      owner: root
