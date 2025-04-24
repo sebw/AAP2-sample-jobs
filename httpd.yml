@@ -7,12 +7,10 @@
   tasks:
   - name: Install Apache
     block:
-      - name: Install Apache
-        dnf:
+      - dnf:
           name: httpd
           state: present
-      - name: Open firewall port
-        ansible.posix.firewalld:
+      - ansible.posix.firewalld:
           port: 80/tcp
           permanent: yes
           state: enabled
@@ -22,8 +20,8 @@
   - name: Remove Apache
     block:
       - dnf:
-        name: httpd
-        state: absent
+          name: httpd
+          state: absent
       - ansible.posix.firewalld:
           port: 80/tcp
           permanent: yes
