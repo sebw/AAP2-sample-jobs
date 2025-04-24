@@ -11,6 +11,7 @@
       state: present
     when: remove == false
   - name: Remove Apache
+    dnf:
       name: httpd
       state: absent
     when: remove == true
