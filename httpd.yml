@@ -13,7 +13,7 @@
           state: present
       - name: Create firewall rule
         ansible.posix.firewalld:
-          port: 80/tcp
+          service: http
           permanent: yes
           state: enabled
           immediate: yes
@@ -25,9 +25,9 @@
         ansible.builtin.dnf:
           name: httpd
           state: absent
-      - Name: Remove firewall rule
+      - name: Remove firewall rule
         ansible.posix.firewalld:
-          port: 80/tcp
+          service: http
           permanent: yes
           state: absent
           immediate: yes
