@@ -11,6 +11,11 @@
         ansible.builtin.dnf:
           name: httpd
           state: present
+      - name: Start service
+        ansible.posix.service:
+          name: httpd
+          state: started
+          enabled: yes
       - name: Create firewall rule
         ansible.posix.firewalld:
           service: http
@@ -21,6 +26,11 @@
 
   - name: Requested to remove Apache
     block:
+      - name: Stop service
+        ansible.posix.service:
+          name: httpd
+          state: stopped
+          enabled: no
       - name: Remove package
         ansible.builtin.dnf:
           name: httpd
