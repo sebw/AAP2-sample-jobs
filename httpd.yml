@@ -37,7 +37,7 @@
         ansible.posix.firewalld:
           service: http
           permanent: yes
-          state: enabled
+          state: absent
           immediate: yes
       - ansible.posix.firewalld:
           rich_rule: 'rule family="ipv4" port port="80" protocol="tcp" reject'
