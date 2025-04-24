@@ -37,6 +37,6 @@
         ansible.posix.firewalld:
           service: http
           permanent: yes
-          state: absent
+          state: disabled
           immediate: yes
     when: remove == true
