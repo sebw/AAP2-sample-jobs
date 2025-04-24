@@ -5,26 +5,30 @@
   vars:
     remove: false
   tasks:
-  - name: Install Apache
+  - name: Requested to install Apache
     block:
-      - dnf:
+      - name: Install package
+        ansible.builtin.dnf:
           name: httpd
           state: present
-      - ansible.posix.firewalld:
+      - name: Create firewall rule
+        ansible.posix.firewalld:
           port: 80/tcp
           permanent: yes
           state: enabled
           immediate: yes
     when: remove == false
 
-  - name: Remove Apache
+  - name: Requested to remove Apache
     block:
-      - dnf:
+      - name: Remove package
+        ansible.builtin.dnf:
           name: httpd
           state: absent
-      - ansible.posix.firewalld:
+      - Name: Remove firewall rule
+        ansible.posix.firewalld:
           port: 80/tcp
           permanent: yes
-          state: enabled
+          state: absent
           immediate: yes
     when: remove == true
