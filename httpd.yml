@@ -5,11 +5,12 @@
   vars:
     remove: false
   tasks:
-  - dnf:
+  - name: Install Apache
+    dnf:
       name: httpd
       state: present
-    when: remove != false
-  - dnf:
+    when: remove == false
+  - name: Remove Apache
       name: httpd
       state: absent
-    when: remove == false
+    when: remove == true
