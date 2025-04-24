@@ -12,7 +12,7 @@
           name: httpd
           state: present
       - name: Start service
-        ansible.posix.service:
+        ansible.builtin.service:
           name: httpd
           state: started
           enabled: yes
@@ -27,7 +27,7 @@
   - name: Requested to remove Apache
     block:
       - name: Stop service
-        ansible.posix.service:
+        ansible.builtin.service:
           name: httpd
           state: stopped
           enabled: no
