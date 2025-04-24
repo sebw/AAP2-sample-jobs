@@ -29,11 +29,6 @@
 
   - name: Requested to remove Apache
     block:
-      - name: Stop service
-        ansible.builtin.service:
-          name: httpd
-          state: stopped
-          enabled: no
       - name: Remove package
         ansible.builtin.dnf:
           name: httpd
