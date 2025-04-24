@@ -5,6 +5,9 @@
   vars:
     remove: false
   tasks:
+  - name: Source code
+    debug:
+      msg: 👨‍💻 Playbook source code ➡️ https://github.com/sebw/AAP2-sample-jobs/blob/main/httpd.yml
   - name: Requested to install Apache
     block:
       - name: Install package
