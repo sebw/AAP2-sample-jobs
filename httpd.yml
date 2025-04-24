@@ -39,9 +39,4 @@
           permanent: yes
           state: absent
           immediate: yes
-      - ansible.posix.firewalld:
-          rich_rule: 'rule family="ipv4" port port="80" protocol="tcp" reject'
-          permanent: yes
-          immediate: yes
-          state: enabled
     when: remove == true
