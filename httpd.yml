@@ -1,0 +1,15 @@
+---
+- name: install Apache Web Server
+  hosts: all
+  gather_facts: false
+  vars:
+    remove: false
+  tasks:
+  - dnf:
+      name: httpd
+      state: present
+    when: remove != false
+  - dnf:
+      name: httpd
+      state: absent
+    when: remove == false
