@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: false
   vars:
-    remove: false
+    remove: 'false'
   tasks:
   - name: Source code
     debug:
@@ -25,7 +25,7 @@
           permanent: yes
           state: enabled
           immediate: yes
-    when: remove == false
+    when: remove == 'false'
 
   - name: Requested to remove Apache
     block:
@@ -39,4 +39,4 @@
           permanent: yes
           state: disabled
           immediate: yes
-    when: remove == true
+    when: remove == 'true'
