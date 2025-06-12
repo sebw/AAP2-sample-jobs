@@ -4,8 +4,8 @@
   gather_facts: false
 
   tasks:
-    - name: Kill process by name
-      shell: "kill -9 {{ process_name }}"
+    - name: Kill process by ID
+      shell: "kill -9 {{ process_id }}"
       ignore_errors: yes
       register: kill_result
 
