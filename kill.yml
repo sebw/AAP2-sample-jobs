@@ -1,5 +1,5 @@
 ---
-- name: Kill a specific process
+- name: Do something with a process
   hosts: localhost
   gather_facts: false
 
@@ -8,6 +8,8 @@
       shell: "kill -9 {{ process_id }}"
       ignore_errors: yes
       register: kill_result
+      delegate_to: "{{ machine }}"
+      when: action == "kill_process"
 
     - name: Show kill command result
       debug:
