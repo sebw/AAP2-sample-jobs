@@ -10,7 +10,7 @@
       register: kill_result
       delegate_to: "{{ machine }}"
       connection: local
-      when: action == "kill_process"
+      when: recommended_action == "kill_process"
 
     - name: Show kill command result
       debug:
