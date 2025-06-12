@@ -1,0 +1,14 @@
+---
+- name: Kill a specific process
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Kill process by name
+      shell: "pkill -f {{ process_name }}"
+      ignore_errors: yes  # Optional: continue even if process isn't found
+      register: kill_result
+
+    - name: Show kill command result
+      debug:
+        var: kill_result
