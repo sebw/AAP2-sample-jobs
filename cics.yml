@@ -1,0 +1,32 @@
+---
+- name: create a dummy playbook that pulls IBM cics collection
+  hosts: localhost
+  gather_facts: false
+
+  collections:
+    - ibm_zos_cics
+
+  vars:
+    cmci_host: "mycics.example.com"
+    cmci_port: 9080
+    cmci_scheme: "http"
+    cmci_user: "blah"
+    cmci_password: "dummypass"
+    cics_region: "MYREGION"
+
+  tasks:
+
+    - name: this task will fail because I don't have a Z system
+      ibm_zos_cics.cics_cmci_create:
+        cmci_host: "{{ cmci_host }}"
+        cmci_port: "{{ cmci_port }}"
+        scheme: "{{ cmci_scheme }}"
+        context: "{{ cics_region }}"
+        scope: "{{ cics_region }}"
+        type: "CICSProgram"
+        resources:
+          - name: "MYPROG"
+            progname: "MYPROG"
+        credentials:
+          user: "{{ cmci_user }}"
+          password: "{{ cmci_password }}"
