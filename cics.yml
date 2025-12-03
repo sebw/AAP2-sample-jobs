@@ -3,9 +3,6 @@
   hosts: localhost
   gather_facts: false
 
-  collections:
-    - ibm.ibm_zos_cics
-
   vars:
     cmci_host: "mycics.example.com"
     cmci_port: 9080
